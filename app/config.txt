@@ -1,0 +1,16 @@
+domain=twitter  # soundcloud, youtube, twitter, toxic
+start=0  # start of the data subset.
+end=10000  # end of the data subset.
+train_size=0.7  # percentage of data to train the independent model.
+val_size=0.05  # percentage of data to train the relational model.
+classifier=lr  # lr - logisitic regression, rf - random forest
+ngrams=yes  # yes or no, uses ngrams as features in the classifier.
+pseudo=yes # yes or no, uses relational features in independent.
+fold=0 # experiment identifier.
+relations=[intext]  # relations to exploit, options below.
+engine=mrf  # psl, tuffy, or mrf.
+
+# relations
+# soundcloud: posts, intext, intrack
+# youtube: posts, intext, inment, inhour, invideo
+# twitter: posts, intext, inhash, inment, inlink

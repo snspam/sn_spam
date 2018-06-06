@@ -1,0 +1,10 @@
+  language: python
+  python:
+    - 3.6
+  script:
+    - make setup
+    - make cover
+
+  notifications:
+    on_success: change
+    on_failure: change

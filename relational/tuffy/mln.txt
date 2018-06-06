@@ -1,0 +1,49 @@
+// Predicates
+Spam(com_id)
+*Indpred(com_id, float_ wgt)
+
+Spamtext(text_id)
+*Intext(com_id, text_id)
+
+Spamuser(user_id)
+*Posts(com_id, user_id)
+
+Spamtrack(track_id)
+*Intrack(com_id, track_id)
+
+Spamhash(hash_id)
+*Inhash(com_id, hash_id)
+
+Spamment(ment_id)
+*Inment(com_id, ment_id)
+
+Spamvideo(video_id)
+*Invideo(com_id, video_id)
+
+Spamhour(hour_id)
+*Inhour(com_id, hour_id)
+
+// Rules
+1.0 !Spam(c)
+wgt: !Indpred(c, wgt) v Spam(c)
+
+1.0 !Intext(c, te) v !Spam(c) v Spamtext(t)
+1.0 !Intext(c, te) v !Spamtext(t) v Spam(c)
+
+1.0 !Posts(c, us) v !Spam(c) v Spamuser(u)
+1.0 !Posts(c, us) v !Spamuser(u) v Spam(c)
+
+1.0 !Intrack(c, tr) v !Spam(c) v Spamtrack(tr)
+1.0 !Intrack(c, tr) v !Spamtrack(tr) v Spam(c)
+
+1.0 !Inhash(c, ha) v !Spam(c) v Spamhash(ha)
+1.0 !Inhash(c, ha) v !Spamhash(ha) v Spam(c)
+
+1.0 !Inment(c, me) v !Spam(c) v Spamment(me)
+1.0 !Inment(c, me) v !Spamment(me) v Spam(c)
+
+1.0 !Invideo(c, vi) v !Spam(c) v Spamvideo(vi)
+1.0 !Invideo(c, vi) v !Spamvideo(vi) v Spam(c)
+
+1.0 !Inhour(c, ho) v !Spam(c) v Spamhour(ho)
+1.0 !Inhour(c, ho) v !Spamhour(ho) v Spam(c)

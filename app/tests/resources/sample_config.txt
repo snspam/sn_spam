@@ -1,0 +1,16 @@
+domain=soundcloud  # soundcloud, youtube, or twitter.
+start=0  # start of the data subset.
+end=1000  # end of the data subset.
+train_size=0.7  # percentage of data to use for independent model training.
+val_size=0.1  # percentage of data to use for relational model training.
+classifier=lr  # lr - logisitic regression, rf - random forest
+ngrams=yes  # yes or no, uses ngrams as features in the classifier.
+pseudo=yes # yes or no, uses relational features in independent model.
+fold=32  # dataset identifier.
+relations=[intext,posts,intrack]  # list of relations to exploit, see below for options.
+engine=psl  # psl - probabilistic soft logic, tuffy - MLN implementation.
+
+# relations
+# soundcloud: posts, intext, intrack
+# youtube: posts, intext, inhour, invideo
+# twitter: posts, intext, inhash
